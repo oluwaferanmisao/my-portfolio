@@ -23,7 +23,7 @@ const projects = [
     gradient: "from-green-600 to-teal-600",
   },
   {
-    title: "Portfolio Website - AI built site",
+    title: "Portfolio Website",
     description:
       "A responsive portfolio website built with v0 by Vercel. Features modern design, dark theme, and smooth animations.",
     technologies: ["Next.js", "React", "Tailwind CSS"],
@@ -92,65 +92,72 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-20">
           {projects.map((project, index) => (
-            <div key={index} className="group">
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                {/* Project Visual */}
-                <div
-                  className={`aspect-[4/3] bg-gradient-to-br ${project.gradient} rounded-xl flex items-center justify-center relative overflow-hidden`}
-                >
-                  <div className="text-center p-8">
-                    <h3 className="font-space-grotesk font-bold text-2xl md:text-3xl mb-4 text-white">
-                      {project.title}
-                    </h3>
-                    <div className="w-24 h-24 bg-white/20 rounded-lg mx-auto"></div>
-                  </div>
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
+            <div
+              key={index}
+              className="group bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:bg-white/10 transition-all duration-300"
+            >
+              {/* Project Visual */}
+              <div
+                className={`aspect-[4/3] bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}
+              >
+                <div className="text-center p-6">
+                  <h3 className="font-space-grotesk font-bold text-xl md:text-2xl mb-4 text-white">{project.title}</h3>
+                  <div className="w-16 h-16 bg-white/20 rounded-lg mx-auto"></div>
+                </div>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
+              </div>
+
+              {/* Project Details */}
+              <div className="p-6 space-y-4">
+                <div>
+                  <h3 className="font-space-grotesk font-bold text-xl mb-3">{project.title}</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">{project.description}</p>
                 </div>
 
-                {/* Project Details */}
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="font-space-grotesk font-bold text-2xl md:text-3xl mb-4">{project.title}</h3>
-                    <p className="text-gray-300 leading-relaxed">{project.description}</p>
-                  </div>
-
-                  {/* Technologies */}
-                  <div>
-                    <h4 className="font-semibold mb-3 text-gray-200">Technologies Used:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, techIndex) => (
-                        <Badge key={techIndex} variant="secondary" className="bg-white/10 text-white border-white/20">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Links */}
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    {project.githubLink !== "#" && (
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="border-white/30 text-white hover:bg-white hover:text-black transition-all duration-300 bg-transparent"
+                {/* Technologies */}
+                <div>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, techIndex) => (
+                      <Badge
+                        key={techIndex}
+                        variant="secondary"
+                        className="bg-white/10 text-white border-white/20 text-xs"
                       >
-                        <Link href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                          <Github className="w-4 h-4 mr-2" />
-                          View Code
-                        </Link>
-                      </Button>
-                    )}
-                    {project.liveLink !== "#" && (
-                      <Button asChild className="bg-white text-black hover:bg-gray-200 transition-all duration-300">
-                        <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          Live Demo
-                        </Link>
-                      </Button>
-                    )}
+                        {tech}
+                      </Badge>
+                    ))}
                   </div>
+                </div>
+
+                {/* Links */}
+                <div className="flex gap-3 pt-2">
+                  {project.githubLink !== "#" && (
+                    <Button
+                      asChild
+                      variant="outline"
+                      size="sm"
+                      className="flex-1 border-white/30 text-white hover:bg-white hover:text-black transition-all duration-300 bg-transparent"
+                    >
+                      <Link href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </Link>
+                    </Button>
+                  )}
+                  {project.liveLink !== "#" && (
+                    <Button
+                      asChild
+                      size="sm"
+                      className="flex-1 bg-white text-black hover:bg-gray-200 transition-all duration-300"
+                    >
+                      <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live
+                      </Link>
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
@@ -158,7 +165,7 @@ export default function Projects() {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center mt-20 py-16 border-t border-white/10">
+        <div className="text-center py-16 border-t border-white/10">
           <h2 className="font-space-grotesk font-bold text-3xl mb-6">Interested in working together?</h2>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
             I'm always open to discussing new opportunities and exciting projects. Let's create something amazing
