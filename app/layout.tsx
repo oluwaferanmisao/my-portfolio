@@ -1,17 +1,9 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
-import { Poppins, Space_Grotesk } from "next/font/google"
+import { Space_Grotesk, Inter } from "next/font/google"
 import Header from "./components/header"
-import { DotGrid } from "./components/dot-grid"
 import { ClientWrapper } from "./components/client-wrapper"
-
-// Modern font combination
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-poppins",
-})
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -19,10 +11,15 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 })
 
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-inter",
+})
+
 export const metadata: Metadata = {
-  title: "Oluwaferanmi Sao - Portfolio",
-  description:
-    "Professional portfolio of a Flutter mobile developer with experience in WordPress, HTML, CSS, and React",
+  title: "Oluwaferanmi Sao - UI/UX & Graphic Designer",
+  description: "Professional portfolio of a UI/UX & Graphic Designer specializing in modern web and mobile design",
   icons: {
     icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bubble-favicon-BWVYmr3lXZn3yuQKYpys28lK1WCzos.png",
     shortcut:
@@ -38,16 +35,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${poppins.variable} ${spaceGrotesk.variable} font-sans dark bg-background text-foreground min-h-screen flex flex-col`}
+        className={`${spaceGrotesk.variable} ${inter.variable} font-inter bg-[#1a1a1a] text-white min-h-screen antialiased`}
       >
-        <DotGrid />
         <Header />
-        <main className="container mx-auto px-4 pt-24 pb-8 relative flex-grow">{children}</main>
-        <footer className="bg-secondary text-secondary-foreground text-center py-4 relative mt-auto">
-          © {new Date().getFullYear()} Oluwaferanmi Sao. All rights reserved.
-        </footer>
+        <main>{children}</main>
         <ClientWrapper />
       </body>
     </html>

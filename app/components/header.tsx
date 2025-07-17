@@ -1,47 +1,43 @@
-import Link from 'next/link'
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 const Header = () => {
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl z-50">
-      <nav className="bg-black/30 backdrop-blur-lg border border-white/10 rounded-full px-6 py-3">
-        <ul className="flex justify-center space-x-8">
-          <li>
-            <Link 
-              href="/" 
-              className="text-secondary-foreground hover:text-primary transition-colors relative group"
-            >
-              Home
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a1a]/80 backdrop-blur-md border-b border-white/5">
+      <nav className="container mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+              <span className="text-black font-bold text-sm">P</span>
+            </div>
+            <span className="font-space-grotesk font-semibold text-xl">Polo</span>
+          </div>
+
+          {/* Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <Link href="#services" className="text-gray-300 hover:text-white transition-colors">
+              Services
             </Link>
-          </li>
-          <li>
-            <Link 
-              href="/about" 
-              className="text-secondary-foreground hover:text-primary transition-colors relative group"
-            >
-              About
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-            </Link>
-          </li>
-          <li>
-            <Link 
-              href="/skills" 
-              className="text-secondary-foreground hover:text-primary transition-colors relative group"
-            >
-              Skills
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-            </Link>
-          </li>
-          <li>
-            <Link 
-              href="/projects" 
-              className="text-secondary-foreground hover:text-primary transition-colors relative group"
-            >
+            <Link href="#projects" className="text-gray-300 hover:text-white transition-colors">
               Projects
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
             </Link>
-          </li>
-        </ul>
+            <Link href="#testimonials" className="text-gray-300 hover:text-white transition-colors">
+              Testimonials
+            </Link>
+            <Link href="#contact" className="text-gray-300 hover:text-white transition-colors">
+              Contact
+            </Link>
+          </div>
+
+          {/* CTA Button */}
+          <Button
+            variant="outline"
+            className="hidden md:inline-flex border-white/20 text-white hover:bg-white hover:text-black transition-all duration-300 bg-transparent"
+          >
+            Get for Free
+          </Button>
+        </div>
       </nav>
     </header>
   )
