@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { TestimonialCard } from "./components/testimonial-card"
 import { ArrowUpRight, Code, Smartphone } from "lucide-react"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -35,14 +36,15 @@ export default function Home() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button
+                  asChild
                   variant="outline"
                   size="lg"
                   className="border-white/30 text-white hover:bg-white hover:text-black transition-all duration-300 bg-transparent"
                 >
-                  View My Projects
+                  <Link href="/projects">View My Projects</Link>
                 </Button>
-                <Button size="lg" className="bg-white text-black hover:bg-gray-200 transition-all duration-300">
-                  Contact Me
+                <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 transition-all duration-300">
+                  <Link href="/contact">Contact Me</Link>
                 </Button>
               </div>
             </div>
@@ -72,12 +74,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Portfolio Grid Section */}
-      <section id="projects" className="py-16 px-6">
+      {/* Portfolio Preview Section */}
+      <section className="py-16 px-6">
         <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-space-grotesk font-bold text-3xl md:text-4xl mb-4">Featured Projects</h2>
+            <p className="text-gray-400">A selection of my recent work</p>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Project Card 1 - FlutterChat */}
-            <div className="group relative bg-white/5 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300 cursor-pointer">
+            <Link
+              href="/projects"
+              className="group relative bg-white/5 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300 cursor-pointer"
+            >
               <div className="aspect-[4/3] bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
                 <div className="text-center p-8">
                   <h3 className="font-space-grotesk font-bold text-2xl mb-4">FlutterChat</h3>
@@ -89,10 +99,13 @@ export default function Home() {
                 </div>
               </div>
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
-            </div>
+            </Link>
 
             {/* Project Card 2 - Kitchen Compendium */}
-            <div className="group relative bg-white/5 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300 cursor-pointer">
+            <Link
+              href="/projects"
+              className="group relative bg-white/5 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300 cursor-pointer"
+            >
               <div className="aspect-[4/3] bg-gradient-to-br from-green-600 to-teal-600 flex items-center justify-center">
                 <div className="text-center p-8">
                   <h3 className="font-space-grotesk font-bold text-xl mb-4">Kitchen Compendium</h3>
@@ -103,10 +116,13 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
 
             {/* Project Card 3 - Weather App */}
-            <div className="group relative bg-white/5 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300 cursor-pointer">
+            <Link
+              href="/projects"
+              className="group relative bg-white/5 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300 cursor-pointer"
+            >
               <div className="aspect-[4/3] bg-gradient-to-br from-orange-600 to-red-600 flex items-center justify-center">
                 <div className="text-center p-8">
                   <h3 className="font-space-grotesk font-bold text-xl mb-4">Weather App</h3>
@@ -117,36 +133,18 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
+          </div>
 
-            {/* Project Card 4 - Portfolio Website */}
-            <div className="group relative bg-white/5 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300 cursor-pointer md:col-span-2">
-              <div className="aspect-[8/3] bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <h3 className="font-space-grotesk font-bold text-3xl mb-4">Portfolio Website</h3>
-                  <p className="text-white/80">Built with Next.js and React</p>
-                  <div className="flex flex-wrap gap-2 justify-center mt-4">
-                    <span className="bg-white/20 px-3 py-1 rounded text-sm">Next.js</span>
-                    <span className="bg-white/20 px-3 py-1 rounded text-sm">React</span>
-                    <span className="bg-white/20 px-3 py-1 rounded text-sm">Tailwind</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Project Card 5 - Bidding App */}
-            <div className="group relative bg-white/5 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300 cursor-pointer">
-              <div className="aspect-[4/3] bg-gradient-to-br from-indigo-600 to-blue-600 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <h3 className="font-space-grotesk font-bold text-xl mb-4">Bidding App</h3>
-                  <p className="text-white/80 text-sm mb-4">Demo auction application</p>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    <span className="bg-white/20 px-2 py-1 rounded text-xs">Flutter</span>
-                    <span className="bg-white/20 px-2 py-1 rounded text-xs">Dart</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="text-center mt-12">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-white/30 text-white hover:bg-white hover:text-black transition-all duration-300 bg-transparent"
+            >
+              <Link href="/projects">View All Projects</Link>
+            </Button>
           </div>
         </div>
       </section>

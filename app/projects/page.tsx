@@ -1,75 +1,173 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import Link from 'next/link'
+import { Button } from "@/components/ui/button"
+import { ExternalLink, Github } from "lucide-react"
+import Link from "next/link"
 
 const projects = [
   {
     title: "FlutterChat",
-    description: "A real-time messaging app built with Flutter and Firebase.",
+    description:
+      "A real-time messaging app built with Flutter and Firebase. Features include user authentication, real-time messaging, and a clean, intuitive interface.",
     technologies: ["Flutter", "Dart", "Firebase"],
-    link: "https://github.com/oluwaferanmisao/FlutterChat"
+    githubLink: "https://github.com/oluwaferanmisao/FlutterChat",
+    liveLink: "#",
+    gradient: "from-blue-600 to-purple-600",
   },
   {
     title: "Kitchen Compendium",
-    description: "A cookbook app for displaying popular recipes.",
+    description:
+      "A cookbook app for displaying popular recipes. Created the mobile application from scratch with custom UI design and user experience features.",
     technologies: ["Flutter", "Dart", "Firebase"],
-    link: "https://github.com/oluwaferanmisao/Kitchen-Compendium.git"
+    githubLink: "https://github.com/oluwaferanmisao/Kitchen-Compendium.git",
+    liveLink: "#",
+    gradient: "from-green-600 to-teal-600",
   },
   {
     title: "Portfolio Website - AI built site",
-    description: "A responsive portfolio website built with v0 by Vercel.",
+    description:
+      "A responsive portfolio website built with v0 by Vercel. Features modern design, dark theme, and smooth animations.",
     technologies: ["Next.js", "React", "Tailwind CSS"],
-    link: "https://oluwaferanmisao.com.ng"
+    githubLink: "#",
+    liveLink: "https://oluwaferanmisao.com.ng",
+    gradient: "from-purple-600 to-pink-600",
   },
   {
     title: "Weather App",
-    description: "A simple weather application using Flutter and the Open Weather API.",
+    description:
+      "A simple weather application using Flutter and the Open Weather API. Displays current weather conditions and forecasts.",
     technologies: ["Dart", "Flutter", "Open Weather API"],
-    link: "https://github.com/oluwaferanmisao/weather_app"
+    githubLink: "https://github.com/oluwaferanmisao/weather_app",
+    liveLink: "#",
+    gradient: "from-orange-600 to-red-600",
   },
   {
     title: "Bidding App",
-    description: "Just a demo app to practice using dark mode, and rotatable screens in Flutter.",
+    description:
+      "Just a demo app to practice using dark mode, and rotatable screens in Flutter. Features responsive design and theme switching.",
     technologies: ["Flutter", "Dart"],
-    link: "https://github.com/oluwaferanmisao/bidding_app"
+    githubLink: "https://github.com/oluwaferanmisao/bidding_app",
+    liveLink: "#",
+    gradient: "from-indigo-600 to-blue-600",
   },
   {
     title: "Result Checker",
-    description: "This app is a demo for a school project I made using Flutter.",
+    description:
+      "This app is a demo for a school project I made using Flutter. Desktop application for checking and managing student results.",
     technologies: ["Flutter", "Dart"],
-    link: "https://github.com/oluwaferanmisao/result_checker_desktop-app-assignment"
+    githubLink: "https://github.com/oluwaferanmisao/result_checker_desktop-app-assignment",
+    liveLink: "#",
+    gradient: "from-yellow-600 to-orange-600",
   },
   {
-    title: "Others",
-    description: "This is here just to take a spot representing a few other projects that I have worked on but are privatised (by owners), so I am not able to share.",
+    title: "Quiz App",
+    description:
+      "An interactive quiz application with multiple choice questions. Managed quiz questions in code and ensured they looked well on the UI with theming and styles.",
+    technologies: ["Flutter", "Dart"],
+    githubLink: "https://github.com/oluwaferanmisao/quiz-app",
+    liveLink: "#",
+    gradient: "from-pink-600 to-rose-600",
+  },
+  {
+    title: "Private Projects",
+    description:
+      "This represents several other projects that I have worked on but are privatised by owners, so I am not able to share publicly. These include commercial mobile applications with advanced features.",
     technologies: ["Flutter", "Dart", "Firebase", "Swagger", "Postman"],
-    link: "#"
+    githubLink: "#",
+    liveLink: "#",
+    gradient: "from-gray-600 to-gray-800",
   },
 ]
 
 export default function Projects() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-6 animate-fade-in-up">My Projects</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projects.map((project, index) => (
-          <Card key={index} className="bg-card text-card-foreground animate-fade-in-up" style={{animationDelay: `${index * 200}ms`}}>
-            <CardHeader>
-              <CardTitle className="text-primary">{project.title}</CardTitle>
-              <CardDescription>{project.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.technologies.map((tech, techIndex) => (
-                  <Badge key={techIndex} variant="secondary" className="bg-secondary text-secondary-foreground">{tech}</Badge>
-                ))}
+    <div className="min-h-screen pt-24 px-6">
+      <div className="container mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="font-space-grotesk font-bold text-4xl md:text-5xl mb-6">My Projects</h1>
+          <p className="text-gray-300 text-xl leading-relaxed max-w-2xl mx-auto">
+            A collection of mobile applications and web projects I've built using Flutter, React, and other modern
+            technologies.
+          </p>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid gap-8 md:gap-12">
+          {projects.map((project, index) => (
+            <div key={index} className="group">
+              <div className="grid lg:grid-cols-2 gap-8 items-center">
+                {/* Project Visual */}
+                <div
+                  className={`aspect-[4/3] bg-gradient-to-br ${project.gradient} rounded-xl flex items-center justify-center relative overflow-hidden`}
+                >
+                  <div className="text-center p-8">
+                    <h3 className="font-space-grotesk font-bold text-2xl md:text-3xl mb-4 text-white">
+                      {project.title}
+                    </h3>
+                    <div className="w-24 h-24 bg-white/20 rounded-lg mx-auto"></div>
+                  </div>
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
+                </div>
+
+                {/* Project Details */}
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="font-space-grotesk font-bold text-2xl md:text-3xl mb-4">{project.title}</h3>
+                    <p className="text-gray-300 leading-relaxed">{project.description}</p>
+                  </div>
+
+                  {/* Technologies */}
+                  <div>
+                    <h4 className="font-semibold mb-3 text-gray-200">Technologies Used:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech, techIndex) => (
+                        <Badge key={techIndex} variant="secondary" className="bg-white/10 text-white border-white/20">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Links */}
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    {project.githubLink !== "#" && (
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="border-white/30 text-white hover:bg-white hover:text-black transition-all duration-300 bg-transparent"
+                      >
+                        <Link href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-4 h-4 mr-2" />
+                          View Code
+                        </Link>
+                      </Button>
+                    )}
+                    {project.liveLink !== "#" && (
+                      <Button asChild className="bg-white text-black hover:bg-gray-200 transition-all duration-300">
+                        <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live Demo
+                        </Link>
+                      </Button>
+                    )}
+                  </div>
+                </div>
               </div>
-              <Link href={project.link} className="text-primary hover:underline">
-                View Project
-              </Link>
-            </CardContent>
-          </Card>
-        ))}
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center mt-20 py-16 border-t border-white/10">
+          <h2 className="font-space-grotesk font-bold text-3xl mb-6">Interested in working together?</h2>
+          <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+            I'm always open to discussing new opportunities and exciting projects. Let's create something amazing
+            together!
+          </p>
+          <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 transition-all duration-300">
+            <Link href="/contact">Get In Touch</Link>
+          </Button>
+        </div>
       </div>
     </div>
   )
