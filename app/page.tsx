@@ -20,7 +20,7 @@ export default function Home() {
               {/* Main Headline */}
               <div className="space-y-4">
                 <h1 className="font-space-grotesk font-bold text-5xl md:text-6xl lg:text-7xl leading-tight">
-                  Better Developer
+                  Oluwaferanmi Sao
                   <ArrowUpRight className="inline-block w-8 h-8 md:w-12 md:h-12 ml-2 text-gray-400" />
                 </h1>
               </div>
