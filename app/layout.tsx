@@ -1,12 +1,23 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Poppins, Space_Grotesk } from "next/font/google"
 import Header from "./components/header"
 import { DotGrid } from "./components/dot-grid"
 import { ClientWrapper } from "./components/client-wrapper"
 
-const inter = Inter({ subsets: ["latin"] })
+// Modern font combination
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
+})
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
+})
 
 export const metadata: Metadata = {
   title: "Oluwaferanmi Sao - Portfolio",
@@ -28,7 +39,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} dark bg-background text-foreground min-h-screen flex flex-col`}>
+      <body
+        className={`${poppins.variable} ${spaceGrotesk.variable} font-sans dark bg-background text-foreground min-h-screen flex flex-col`}
+      >
         <DotGrid />
         <Header />
         <main className="container mx-auto px-4 pt-24 pb-8 relative flex-grow">{children}</main>
