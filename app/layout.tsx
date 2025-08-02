@@ -4,6 +4,7 @@ import type { Metadata } from "next"
 import { Space_Grotesk, Inter } from "next/font/google"
 import Header from "./components/header"
 import { ClientWrapper } from "./components/client-wrapper"
+import { OrganicBackground } from "./components/organic-background"
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -38,12 +39,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} font-inter bg-[#1a1a1a] text-white min-h-screen antialiased overflow-x-hidden`}
+        className={`${spaceGrotesk.variable} ${inter.variable} font-inter bg-[#0a0a0a] text-white min-h-screen antialiased overflow-x-hidden`}
       >
-        {/* Background will be added here once image is provided */}
+        <OrganicBackground />
         <Header />
         <main className="relative">{children}</main>
-        <footer className="bg-[#1a1a1a] border-t border-white/10 py-8 mt-20">
+        <footer className="bg-[#0a0a0a]/80 backdrop-blur-sm border-t border-white/10 py-8 mt-20 relative">
           <div className="container mx-auto px-6 text-center">
             <p className="text-gray-400">© {new Date().getFullYear()} Oluwaferanmi Sao. All rights reserved.</p>
           </div>

@@ -40,6 +40,22 @@
     animation-delay: 2s;
   }
 
+  .animate-float-slow {
+    animation: float-slow 12s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 8s ease-in-out infinite;
+  }
+
+  .animate-drift {
+    animation: drift 15s ease-in-out infinite;
+  }
+
+  .animate-drift-reverse {
+    animation: drift-reverse 18s ease-in-out infinite;
+  }
+
   .line-clamp-3 {
     overflow: hidden;
     display: -webkit-box;
@@ -58,6 +74,63 @@
   }
 }
 
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(10px) translateX(-5px) rotate(-3deg);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateX(20px) translateY(-15px) rotate(10deg);
+  }
+  50% {
+    transform: translateX(-10px) translateY(-25px) rotate(-5deg);
+  }
+  75% {
+    transform: translateX(-25px) translateY(10px) rotate(15deg);
+  }
+}
+
+@keyframes drift-reverse {
+  0%,
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-20px) translateY(15px) rotate(-10deg);
+  }
+  50% {
+    transform: translateX(10px) translateY(25px) rotate(5deg);
+  }
+  75% {
+    transform: translateX(25px) translateY(-10px) rotate(-15deg);
+  }
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -69,7 +142,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -112,4 +185,13 @@ button:focus-visible,
 a:focus-visible {
   outline: 2px solid #60a5fa;
   outline-offset: 2px;
+}
+
+/* Blur utilities for organic shapes */
+.blur-3xl {
+  filter: blur(64px);
+}
+
+.blur-2xl {
+  filter: blur(40px);
 }
