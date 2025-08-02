@@ -1,4 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server"
+import { Resend } from "resend" // Add this import
 
 export async function POST(request: NextRequest) {
   try {
@@ -30,31 +31,19 @@ ${message}
 Sent from your portfolio website
     `.trim()
 
-    // For now, we'll use a simple approach with mailto
-    // In production, you'd want to use a service like Resend, SendGrid, or Nodemailer
+    // Initialize Resend with your API key
+    const resend = new Resend(process.env.RESEND_API_KEY) // Uncomment this line
 
-    // You can integrate with email services here
-    // For demonstration, we'll log the email content
-    console.log("Email to send:", {
-      to: "caleb4sao@gmail.com",
-      from: email,
-      subject: `Portfolio Contact: ${subject}`,
-      content: emailContent,
-    })
-
-    // Simulate email sending (replace with actual email service)
-    // Example with Resend (you'd need to install and configure):
-    /*
-    const resend = new Resend(process.env.RESEND_API_KEY)
-    
+    // Send the email using Resend
     await resend.emails.send({
-      from: 'contact@yourdomain.com',
-      to: 'caleb4sao@gmail.com',
+      // Uncomment this block
+      from: "onboarding@resend.dev", // IMPORTANT: Change this to your verified Resend domain/email, or use 'onboarding@resend.dev' for testing
+      to: "caleb4sao@gmail.com",
       subject: `Portfolio Contact: ${subject}`,
       text: emailContent,
-      replyTo: email
+      replyTo: email,
     })
-    */
+    // End of uncommented block
 
     return NextResponse.json({ message: "Message sent successfully" }, { status: 200 })
   } catch (error) {
