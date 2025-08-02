@@ -38,10 +38,16 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} font-inter bg-[#1a1a1a] text-white min-h-screen antialiased`}
+        className={`${spaceGrotesk.variable} ${inter.variable} font-inter bg-[#1a1a1a] text-white min-h-screen antialiased overflow-x-hidden`}
       >
+        {/* Background will be added here once image is provided */}
         <Header />
-        <main>{children}</main>
+        <main className="relative">{children}</main>
+        <footer className="bg-[#1a1a1a] border-t border-white/10 py-8 mt-20">
+          <div className="container mx-auto px-6 text-center">
+            <p className="text-gray-400">© {new Date().getFullYear()} Oluwaferanmi Sao. All rights reserved.</p>
+          </div>
+        </footer>
         <ClientWrapper />
       </body>
     </html>
