@@ -1,13 +1,16 @@
+"use client"
+
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github } from "lucide-react"
+import { ExternalLink, Github, ChevronDown, ChevronUp } from "lucide-react"
 import Link from "next/link"
+import { useState } from "react"
 
 const projects = [
   {
     title: "FlutterChat",
     description:
-      "A real-time messaging app built with Flutter and Firebase. Features include user authentication, real-time messaging, and a clean, intuitive interface.",
+      "A real-time messaging app built with Flutter and Firebase. Features include user authentication, real-time messaging, and a clean, intuitive interface. The app supports group chats, media sharing, push notifications, and offline message synchronization. Built with modern Flutter architecture patterns and state management using Provider.",
     technologies: ["Flutter", "Dart", "Firebase"],
     githubLink: "https://github.com/oluwaferanmisao/FlutterChat",
     liveLink: "#",
@@ -16,7 +19,7 @@ const projects = [
   {
     title: "Kitchen Compendium",
     description:
-      "A cookbook app for displaying popular recipes. Created the mobile application from scratch with custom UI design and user experience features.",
+      "A cookbook app for displaying popular recipes. Created the mobile application from scratch with custom UI design and user experience features. The app includes recipe search functionality, ingredient lists, step-by-step cooking instructions, nutritional information, and the ability to save favorite recipes. Features a beautiful, intuitive interface with smooth animations and responsive design.",
     technologies: ["Flutter", "Dart", "Firebase"],
     githubLink: "https://github.com/oluwaferanmisao/Kitchen-Compendium.git",
     liveLink: "#",
@@ -25,7 +28,7 @@ const projects = [
   {
     title: "Portfolio Website",
     description:
-      "A responsive portfolio website built with v0 by Vercel. Features modern design, dark theme, and smooth animations.",
+      "A responsive portfolio website built with v0 by Vercel. Features modern design, dark theme, and smooth animations. The site showcases my development skills and projects with a professional, contemporary aesthetic. Built using Next.js, React, and Tailwind CSS with optimized performance and SEO.",
     technologies: ["Next.js", "React", "Tailwind CSS"],
     githubLink: "#",
     liveLink: "https://oluwaferanmisao.com.ng",
@@ -34,7 +37,7 @@ const projects = [
   {
     title: "Weather App",
     description:
-      "A simple weather application using Flutter and the Open Weather API. Displays current weather conditions and forecasts.",
+      "A simple weather application using Flutter and the Open Weather API. Displays current weather conditions and forecasts with beautiful weather animations and intuitive user interface.",
     technologies: ["Dart", "Flutter", "Open Weather API"],
     githubLink: "https://github.com/oluwaferanmisao/weather_app",
     liveLink: "#",
@@ -43,7 +46,7 @@ const projects = [
   {
     title: "Bidding App",
     description:
-      "Just a demo app to practice using dark mode, and rotatable screens in Flutter. Features responsive design and theme switching.",
+      "Just a demo app to practice using dark mode, and rotatable screens in Flutter. Features responsive design and theme switching with smooth transitions between light and dark modes.",
     technologies: ["Flutter", "Dart"],
     githubLink: "https://github.com/oluwaferanmisao/bidding_app",
     liveLink: "#",
@@ -52,7 +55,7 @@ const projects = [
   {
     title: "Result Checker",
     description:
-      "This app is a demo for a school project I made using Flutter. Desktop application for checking and managing student results.",
+      "This app is a demo for a school project I made using Flutter. Desktop application for checking and managing student results with data visualization and export functionality.",
     technologies: ["Flutter", "Dart"],
     githubLink: "https://github.com/oluwaferanmisao/result_checker_desktop-app-assignment",
     liveLink: "#",
@@ -61,7 +64,7 @@ const projects = [
   {
     title: "Quiz App",
     description:
-      "An interactive quiz application with multiple choice questions. Managed quiz questions in code and ensured they looked well on the UI with theming and styles.",
+      "An interactive quiz application with multiple choice questions. Managed quiz questions in code and ensured they looked well on the UI with theming and styles. Features score tracking, timer functionality, and beautiful animations.",
     technologies: ["Flutter", "Dart"],
     githubLink: "https://github.com/oluwaferanmisao/quiz-app",
     liveLink: "#",
@@ -70,13 +73,110 @@ const projects = [
   {
     title: "Private Projects",
     description:
-      "This represents several other projects that I have worked on but are privatised by owners, so I am not able to share publicly. These include commercial mobile applications with advanced features.",
+      "This represents several other projects that I have worked on but are privatised by owners, so I am not able to share publicly. These include commercial mobile applications with advanced features such as payment integration, real-time data synchronization, complex user management systems, and enterprise-level security implementations. The projects span across various industries including fintech, healthcare, and e-commerce.",
     technologies: ["Flutter", "Dart", "Firebase", "Swagger", "Postman"],
     githubLink: "#",
     liveLink: "#",
     gradient: "from-gray-600 to-gray-800",
   },
 ]
+
+interface ProjectCardProps {
+  project: (typeof projects)[0]
+  index: number
+}
+
+function ProjectCard({ project, index }: ProjectCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  // Determine if description needs truncation (more than 120 characters)
+  const needsTruncation = project.description.length > 120
+  const displayDescription =
+    needsTruncation && !isExpanded ? project.description.slice(0, 120) + "..." : project.description
+
+  return (
+    <div className="group bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:bg-white/10 transition-all duration-300">
+      {/* Project Visual */}
+      <div
+        className={`aspect-[4/3] bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}
+      >
+        <div className="text-center p-6">
+          <h3 className="font-space-grotesk font-bold text-xl md:text-2xl mb-4 text-white">{project.title}</h3>
+          <div className="w-16 h-16 bg-white/20 rounded-lg mx-auto"></div>
+        </div>
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
+      </div>
+
+      {/* Project Details */}
+      <div className="p-6 space-y-4">
+        <div>
+          <h3 className="font-space-grotesk font-bold text-xl mb-3">{project.title}</h3>
+          <div className="space-y-2">
+            <p className="text-gray-300 text-sm leading-relaxed">{displayDescription}</p>
+            {needsTruncation && (
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors duration-200"
+              >
+                {isExpanded ? (
+                  <>
+                    <span>See less</span>
+                    <ChevronUp className="w-4 h-4 ml-1" />
+                  </>
+                ) : (
+                  <>
+                    <span>See more</span>
+                    <ChevronDown className="w-4 h-4 ml-1" />
+                  </>
+                )}
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Technologies */}
+        <div>
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.map((tech, techIndex) => (
+              <Badge key={techIndex} variant="secondary" className="bg-white/10 text-white border-white/20 text-xs">
+                {tech}
+              </Badge>
+            ))}
+          </div>
+        </div>
+
+        {/* Links */}
+        <div className="flex gap-3 pt-2">
+          {project.githubLink !== "#" && (
+            <Button
+              asChild
+              variant="outline"
+              size="sm"
+              className="flex-1 border-white/30 text-white hover:bg-white hover:text-black transition-all duration-300 bg-transparent"
+            >
+              <Link href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                <Github className="w-4 h-4 mr-2" />
+                Code
+              </Link>
+            </Button>
+          )}
+          {project.liveLink !== "#" && (
+            <Button
+              asChild
+              size="sm"
+              className="flex-1 bg-white text-black hover:bg-gray-200 transition-all duration-300"
+            >
+              <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Live
+              </Link>
+            </Button>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function Projects() {
   return (
@@ -94,73 +194,7 @@ export default function Projects() {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-20">
           {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:bg-white/10 transition-all duration-300"
-            >
-              {/* Project Visual */}
-              <div
-                className={`aspect-[4/3] bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}
-              >
-                <div className="text-center p-6">
-                  <h3 className="font-space-grotesk font-bold text-xl md:text-2xl mb-4 text-white">{project.title}</h3>
-                  <div className="w-16 h-16 bg-white/20 rounded-lg mx-auto"></div>
-                </div>
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
-              </div>
-
-              {/* Project Details */}
-              <div className="p-6 space-y-4">
-                <div>
-                  <h3 className="font-space-grotesk font-bold text-xl mb-3">{project.title}</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">{project.description}</p>
-                </div>
-
-                {/* Technologies */}
-                <div>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <Badge
-                        key={techIndex}
-                        variant="secondary"
-                        className="bg-white/10 text-white border-white/20 text-xs"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Links */}
-                <div className="flex gap-3 pt-2">
-                  {project.githubLink !== "#" && (
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="sm"
-                      className="flex-1 border-white/30 text-white hover:bg-white hover:text-black transition-all duration-300 bg-transparent"
-                    >
-                      <Link href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </Link>
-                    </Button>
-                  )}
-                  {project.liveLink !== "#" && (
-                    <Button
-                      asChild
-                      size="sm"
-                      className="flex-1 bg-white text-black hover:bg-gray-200 transition-all duration-300"
-                    >
-                      <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live
-                      </Link>
-                    </Button>
-                  )}
-                </div>
-              </div>
-            </div>
+            <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
 
