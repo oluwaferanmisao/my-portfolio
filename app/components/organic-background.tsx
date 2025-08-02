@@ -6,45 +6,107 @@ export function OrganicBackground() {
       {/* Base dark background */}
       <div className="absolute inset-0 bg-[#0a0a0a]" />
 
-      {/* Organic flowing shapes */}
+      {/* Wavy organic shapes */}
       <div className="absolute inset-0">
-        {/* Large flowing shape 1 */}
-        <div className="absolute -top-40 -left-40 w-96 h-96 opacity-20">
-          <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800 rounded-full blur-3xl transform rotate-12 animate-pulse-slow" />
+        {/* Large flowing wave 1 - Top left */}
+        <div className="absolute -top-32 -left-48 w-[600px] h-[400px] opacity-25 animate-wave-slow">
+          <div
+            className="w-full h-full bg-gradient-to-br from-gray-400 to-gray-700"
+            style={{
+              clipPath: "ellipse(70% 60% at 30% 40%)",
+              filter: "blur(40px)",
+              transform: "rotate(-15deg)",
+            }}
+          />
         </div>
 
-        {/* Large flowing shape 2 */}
-        <div className="absolute top-20 -right-32 w-80 h-80 opacity-15">
-          <div className="w-full h-full bg-gradient-to-bl from-gray-500 to-gray-700 rounded-full blur-3xl transform -rotate-45 animate-float-slow" />
+        {/* Medium flowing wave 2 - Top right */}
+        <div className="absolute -top-20 -right-32 w-[500px] h-[350px] opacity-20 animate-wave-drift">
+          <div
+            className="w-full h-full bg-gradient-to-bl from-gray-500 to-gray-800"
+            style={{
+              clipPath: "ellipse(80% 50% at 60% 30%)",
+              filter: "blur(35px)",
+              transform: "rotate(25deg)",
+            }}
+          />
         </div>
 
-        {/* Medium flowing shape 3 */}
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 opacity-10">
-          <div className="w-full h-full bg-gradient-to-tr from-gray-600 to-gray-400 rounded-full blur-2xl transform rotate-90 animate-drift" />
+        {/* Large flowing wave 3 - Center left */}
+        <div className="absolute top-1/3 -left-40 w-[550px] h-[380px] opacity-15 animate-wave-float">
+          <div
+            className="w-full h-full bg-gradient-to-tr from-gray-600 to-gray-400"
+            style={{
+              clipPath: "ellipse(65% 75% at 40% 50%)",
+              filter: "blur(45px)",
+              transform: "rotate(-30deg)",
+            }}
+          />
         </div>
 
-        {/* Large flowing shape 4 */}
-        <div className="absolute bottom-20 left-10 w-72 h-72 opacity-25">
-          <div className="w-full h-full bg-gradient-to-tl from-gray-700 to-gray-500 rounded-full blur-3xl transform -rotate-12 animate-pulse-slow" />
+        {/* Large flowing wave 4 - Bottom left */}
+        <div className="absolute bottom-10 -left-32 w-[650px] h-[420px] opacity-30 animate-wave-pulse">
+          <div
+            className="w-full h-full bg-gradient-to-tl from-gray-700 to-gray-500"
+            style={{
+              clipPath: "ellipse(75% 55% at 35% 60%)",
+              filter: "blur(50px)",
+              transform: "rotate(10deg)",
+            }}
+          />
         </div>
 
-        {/* Medium flowing shape 5 */}
-        <div className="absolute bottom-40 right-1/4 w-56 h-56 opacity-15">
-          <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800 rounded-full blur-2xl transform rotate-45 animate-float-slow" />
+        {/* Medium flowing wave 5 - Bottom right */}
+        <div className="absolute bottom-20 -right-40 w-[480px] h-[320px] opacity-25 animate-wave-drift-reverse">
+          <div
+            className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800"
+            style={{
+              clipPath: "ellipse(85% 45% at 70% 40%)",
+              filter: "blur(38px)",
+              transform: "rotate(-20deg)",
+            }}
+          />
         </div>
 
-        {/* Small accent shapes */}
-        <div className="absolute top-1/3 right-1/3 w-32 h-32 opacity-20">
-          <div className="w-full h-full bg-gradient-to-r from-gray-500 to-gray-600 rounded-full blur-xl animate-drift-reverse" />
+        {/* Flowing wave 6 - Center right */}
+        <div className="absolute top-1/2 -right-24 w-[420px] h-[280px] opacity-18 animate-wave-slow">
+          <div
+            className="w-full h-full bg-gradient-to-l from-gray-500 to-gray-700"
+            style={{
+              clipPath: "ellipse(60% 80% at 50% 45%)",
+              filter: "blur(32px)",
+              transform: "rotate(35deg)",
+            }}
+          />
         </div>
 
-        <div className="absolute bottom-1/3 left-1/2 w-40 h-40 opacity-15">
-          <div className="w-full h-full bg-gradient-to-l from-gray-600 to-gray-700 rounded-full blur-xl animate-float-slow" />
+        {/* Small accent wave 7 - Top center */}
+        <div className="absolute top-1/4 left-1/3 w-[300px] h-[200px] opacity-20 animate-wave-float">
+          <div
+            className="w-full h-full bg-gradient-to-r from-gray-400 to-gray-600"
+            style={{
+              clipPath: "ellipse(90% 40% at 60% 50%)",
+              filter: "blur(25px)",
+              transform: "rotate(-45deg)",
+            }}
+          />
+        </div>
+
+        {/* Small accent wave 8 - Bottom center */}
+        <div className="absolute bottom-1/3 left-1/2 w-[350px] h-[230px] opacity-22 animate-wave-drift">
+          <div
+            className="w-full h-full bg-gradient-to-bl from-gray-600 to-gray-500"
+            style={{
+              clipPath: "ellipse(70% 65% at 40% 55%)",
+              filter: "blur(30px)",
+              transform: "rotate(50deg)",
+            }}
+          />
         </div>
       </div>
 
       {/* Subtle overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0a]/20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0a]/30" />
     </div>
   )
 }
