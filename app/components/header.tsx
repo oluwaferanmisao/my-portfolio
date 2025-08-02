@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Github, Linkedin } from "lucide-react"
 import { useState, useEffect } from "react"
 
 const Header = () => {
@@ -38,8 +38,8 @@ const Header = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-[#1a1a1a]/95 backdrop-blur-md border-b border-white/10"
-            : "bg-[#1a1a1a]/80 backdrop-blur-md border-b border-white/5"
+            ? "bg-black/95 backdrop-blur-md border-b border-white/10"
+            : "bg-black/80 backdrop-blur-md border-b border-white/5"
         }`}
       >
         <nav className="container mx-auto px-6 py-4">
@@ -101,7 +101,7 @@ const Header = () => {
 
         {/* Mobile Menu Panel */}
         <div
-          className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-[#1a1a1a]/95 backdrop-blur-md border-l border-white/10 transform transition-transform duration-300 ease-out ${
+          className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-black/95 backdrop-blur-md border-l border-white/10 transform transition-transform duration-300 ease-out ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -147,6 +147,31 @@ const Header = () => {
               >
                 <Link href="/contact">Hire Me</Link>
               </Button>
+            </div>
+
+            {/* Social Links */}
+            <div className="mt-6 pt-4 border-t border-white/10">
+              <h4 className="text-sm font-medium text-gray-400 mb-3">Follow Me</h4>
+              <div className="flex space-x-4">
+                <a
+                  href="https://github.com/oluwaferanmisao"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                  aria-label="GitHub Profile"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/oluwaferanmisao"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                  aria-label="LinkedIn Profile"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
             </div>
 
             {/* Contact Info */}
