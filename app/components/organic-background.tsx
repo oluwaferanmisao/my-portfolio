@@ -26,6 +26,9 @@ export function OrganicBackground() {
                 <stop offset="0%" stopColor="#1a1a1a" stopOpacity="0.5" />
                 <stop offset="100%" stopColor="#2a2a2a" stopOpacity="0.7" />
               </linearGradient>
+              <pattern id="mesh" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="0.5" />
+              </pattern>
             </defs>
 
             {/* Main flowing shape */}
@@ -51,6 +54,8 @@ export function OrganicBackground() {
               className="animate-pulse"
               style={{ animationDuration: "10s", animationDelay: "4s" }}
             />
+
+            <rect width="100%" height="100%" fill="url(#mesh)" />
           </svg>
         </div>
 
