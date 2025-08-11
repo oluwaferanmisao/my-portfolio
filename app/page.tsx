@@ -53,8 +53,8 @@ export default function Home() {
             <div className="lg:col-span-2 relative h-full">
               <div className="relative space-y-6">
                 <TestimonialCard
-                  quote="His Flutter apps are incredibly smooth and well-designed."
-                  author="Client A"
+                  quote="Passionate developer who loves to build"
+                  author="Oluwaferanmi Sao"
                   className="absolute top-0 right-0 animate-float"
                 />
 
