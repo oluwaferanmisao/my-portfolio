@@ -59,10 +59,11 @@ export default function Home() {
                 />
 
                 <TestimonialCard
+                  quote="The website looks great and works flawlessly. My experience so far has been smooth and hassle-free."
                   quote="The website looks great and works flawlessly. Although I haven’t explored it extensively yet, my experience so far has been smooth and hassle-free.
 
 I truly appreciate your attention to detail and the way you listened to my feedback. Your effort and care really shine through in the final result."
-                  author="Client B"
+                  author="Taiwo Ogunbode"
                   className="absolute top-32 left-0 animate-float-delayed"
                 />
 
