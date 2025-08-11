@@ -59,10 +59,7 @@ export default function Home() {
                 />
 
                 <TestimonialCard
-                  quote="The website looks great and works flawlessly. My experience so far has been smooth and hassle-free."
-                  quote="The website looks great and works flawlessly. Although I haven’t explored it extensively yet, my experience so far has been smooth and hassle-free.
-
-I truly appreciate your attention to detail and the way you listened to my feedback. Your effort and care really shine through in the final result."
+                  quote="The  website is really good and works so well. Thank you so much for paying attention to detail and for actually listening to my complaints. I really appreciate the effort and care you have put into it."
                   author="Taiwo Ogunbode"
                   className="absolute top-32 left-0 animate-float-delayed"
                 />
