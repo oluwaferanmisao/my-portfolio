@@ -1,74 +1,70 @@
 import { Button } from "@/components/ui/button"
 import { TestimonialCard } from "./components/testimonial-card"
-import { ArrowUpRight, Code, Smartphone } from "lucide-react"
+import { Code } from "lucide-react"
 import Link from "next/link"
 
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 px-6">
-        <div className="container mx-auto">
-          <div className="grid lg:grid-cols-5 gap-12 items-center min-h-[80vh]">
-            {/* Left Side - Main Content */}
-            <div className="lg:col-span-3 space-y-8">
-              {/* Subtitle */}
-              <div className="flex items-center space-x-2 text-gray-400">
-                <Smartphone className="w-4 h-4" />
-                <span className="text-sm font-medium tracking-wide">Flutter Mobile Developer</span>
-              </div>
-
-              {/* Main Headline */}
-              <div className="space-y-4">
-                <h1 className="font-space-grotesk font-bold text-5xl md:text-6xl lg:text-7xl leading-tight">
-                  Oluwaferanmi Sao
-                  <ArrowUpRight className="inline-block w-8 h-8 md:w-12 md:h-12 ml-2 text-gray-400" />
-                </h1>
-              </div>
-
-              {/* Subtext */}
-              <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl">
-                I'm a passionate Flutter mobile developer with experience in creating beautiful and functional
-                cross-platform applications. I also have knowledge of WordPress, HTML, CSS, and React. Let's build
-                something amazing together!
-              </p>
-
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-white/30 text-white hover:bg-white hover:text-black transition-all duration-300 bg-transparent"
-                >
-                  <Link href="/projects">View My Projects</Link>
-                </Button>
-                <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 transition-all duration-300">
-                  <Link href="/contact">Contact Me</Link>
-                </Button>
-              </div>
+      {/* Hero Section - Magnifying Glass Effect */}
+      <section className="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-24">
+        <div className="container mx-auto w-full">
+          {/* Main Showcase Text with Magnifying Glass Effect */}
+          <div className="relative flex flex-col items-center justify-center mb-16">
+            {/* Magnifying Glass Animation Container */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-48 md:h-48 rounded-full glass-effect animate-glass-slide"></div>
             </div>
 
-            {/* Right Side - Floating Testimonials */}
-            <div className="lg:col-span-2 relative h-full">
-              <div className="relative space-y-6">
-                <TestimonialCard
-                  quote="Passionate developer who loves to build"
-                  author="Oluwaferanmi Sao"
-                  className="absolute top-0 right-0 animate-float"
-                />
+            {/* Main Headline - Responsive Text Breaking */}
+            <h1 className="font-space-grotesk font-bold text-center relative z-10">
+              <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight">
+                Sao
+              </span>
+              <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight">
+                Oluwaferanmi
+              </span>
+            </h1>
 
-                <TestimonialCard
-                  quote="The  website is really good and works so well. Thank you so much for paying attention to detail and for actually listening to my complaints. I really appreciate the effort and care you have put into it."
-                  author="Taiwo Ogunbode"
-                  className="absolute top-32 left-0 animate-float-delayed"
-                />
+            {/* Subtitle */}
+            <p className="text-gray-400 text-base md:text-lg mt-12 text-center max-w-2xl">
+              Flutter Mobile Developer • Building beautiful cross-platform applications
+            </p>
+          </div>
 
-                <div className="absolute top-64 right-4 flex items-center space-x-2 text-gray-400">
-                  <Code className="w-4 h-4" />
-                  <span className="text-sm">More projects</span>
-                </div>
-              </div>
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-24">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-white/30 text-white hover:bg-white hover:text-black transition-all duration-300 bg-transparent"
+            >
+              <Link href="/projects">View My Projects</Link>
+            </Button>
+            <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 transition-all duration-300">
+              <Link href="/contact">Contact Me</Link>
+            </Button>
+          </div>
+
+          {/* Testimonials Grid */}
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
+            <TestimonialCard
+              quote="Passionate developer who loves to build"
+              author="Oluwaferanmi Sao"
+            />
+
+            <TestimonialCard
+              quote="The website is really good and works so well. Thank you so much for paying attention to detail and for actually listening to my complaints."
+              author="Taiwo Ogunbode"
+            />
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="flex justify-center items-center gap-2 text-gray-400 text-sm mt-12">
+            <span>Scroll to explore</span>
+            <div className="w-5 h-8 border border-gray-400 rounded-full flex justify-center">
+              <div className="w-1 h-2 bg-gray-400 rounded-full mt-2 animate-bounce"></div>
             </div>
           </div>
         </div>
